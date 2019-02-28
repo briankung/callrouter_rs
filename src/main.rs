@@ -2,9 +2,14 @@
 
 #[macro_use] extern crate rocket;
 
+use rocket::response::content::Html;
+
+mod phone_param;
+use phone_param::PhoneParam;
+
 #[get("/<phone_number>")]
-fn index(phone_number: &RawStr) -> String {
-    format!("<div class='poop'>Hello! Your number is: {}</div>", phone_number.as_str())
+fn index(phone_number: PhoneParam) -> Html<String> {
+    Html(format!("<meta http-equiv=\"refresh\" content=\"0; URL='tel:+1#{}'\" />", phone_number.phone_number))
 }
 
 fn main() {
