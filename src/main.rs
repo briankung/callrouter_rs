@@ -9,7 +9,7 @@ use phone_param::PhoneParam;
 
 #[get("/<phone_number>")]
 fn index(phone_number: PhoneParam) -> Html<String> {
-    Html(format!("<meta http-equiv=\"refresh\" content=\"0; URL='tel:+1#{}'\" />", phone_number.phone_number))
+    Html(format!("<meta http-equiv=\"refresh\" content=\"0; URL='tel:+1{}'\" />", phone_number.phone_number))
 }
 
 fn main() {
