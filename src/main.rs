@@ -1,10 +1,9 @@
-#![feature(proc_macro_hygiene, decl_macro)]
+mod phone_param;
 
+#![feature(proc_macro_hygiene, decl_macro)]
 #[macro_use] extern crate rocket;
 
 use rocket::response::content::Html;
-
-mod phone_param;
 use phone_param::PhoneParam;
 
 #[get("/<phone_number>")]
