@@ -1,8 +1,8 @@
-use rocket::request::FromParam;
 use rocket::http::RawStr;
+use rocket::request::FromParam;
 
 pub struct PhoneParam<'r> {
-    pub phone_number: &'r str
+    pub phone_number: &'r str,
 }
 
 impl<'r> FromParam<'r> for PhoneParam<'r> {
@@ -13,10 +13,8 @@ impl<'r> FromParam<'r> for PhoneParam<'r> {
             return Err(param);
         }
 
-        Ok(
-            PhoneParam {
-                phone_number: param
-            }
-        )
+        Ok(PhoneParam {
+            phone_number: param,
+        })
     }
 }
